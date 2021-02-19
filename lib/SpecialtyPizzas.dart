@@ -21,68 +21,111 @@ class SpecialtyPizzasMenu extends StatelessWidget {
             )
           ]),
       body: Container(
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: new AssetImage('Assets/appBackground.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
+        color: Colors.white,
         constraints: BoxConstraints.expand(),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
+                width: 350.0,
+                height: 400.0,
                 margin: EdgeInsets.symmetric(vertical: 40.0),
                 child: FlatButton(
                   onPressed: () {
                     print('Specialty Pizzas has been clicked');
                     Navigator.pushNamed(context, '/SpecialtyPizzaPurchase');
                   },
-                  child: Stack(
+                  child: Column(
                     children: <Widget>[
-                      Container(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'Assets/SupremePizza.jpg',
-                            height: 250.0,
-                            width: 300.0,
-                            fit: BoxFit.fill,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                            Container(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'Assets/SupremePizza.jpg',
+                                  height: 250.0,
+                                  width: 300.0,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
                           ),
-                        ),
+                        ],
                       ),
-                      Container(
-                        height: 240,
-                        width: 300,
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'Supreme Pizza',
-                          style: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold,
-                            shadows: [
-                              Shadow(
-                                  // bottomLeft
-                                  offset: Offset(-1.5, -1.5),
-                                  color: Colors.black),
-                              Shadow(
-                                  // bottomRight
-                                  offset: Offset(1.5, -1.5),
-                                  color: Colors.black),
-                              Shadow(
-                                  // topRight
-                                  offset: Offset(1.5, 1.5),
-                                  color: Colors.black),
-                              Shadow(
-                                  // topLeft
-                                  offset: Offset(-1.5, 1.5),
-                                  color: Colors.black),
-                            ],
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 40,
+                            width: 300,
+                            child: Text(
+                              "Supreme Pizza", textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                      // bottomLeft
+                                      offset: Offset(-1.5, -1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                      // bottomRight
+                                      offset: Offset(1.5, -1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                      // topRight
+                                      offset: Offset(1.5, 1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                      // topLeft
+                                      offset: Offset(-1.5, 1.5),
+                                      color: Colors.black),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 100,
+                            width: 300,
+                            child: Text(
+                              'Traditionally topped with pepperoni, sausage, bell peppers, onions, and olives, the supreme pizza combines some of the most popular pizza toppings into one delicious slice.', textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                      // bottomLeft
+                                      offset: Offset(-1.5, -1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                      // bottomRight
+                                      offset: Offset(1.5, -1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                      // topRight
+                                      offset: Offset(1.5, 1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                      // topLeft
+                                      offset: Offset(-1.5, 1.5),
+                                      color: Colors.black),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                      
+                      
                     ],
                   ),
                 ),
