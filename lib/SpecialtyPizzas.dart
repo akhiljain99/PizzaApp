@@ -28,8 +28,11 @@ class SpecialtyPizzasMenu extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(8.0)),
                 width: 350.0,
-                height: 400.0,
+                height: 450.0,
                 margin: EdgeInsets.symmetric(vertical: 40.0),
                 child: FlatButton(
                   onPressed: () {
@@ -42,6 +45,7 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                             Container(
+                              margin: EdgeInsets.symmetric(vertical: 10.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
@@ -104,19 +108,19 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                                 shadows: [
                                   Shadow(
                                       // bottomLeft
-                                      offset: Offset(-1.5, -1.5),
+                                      offset: Offset(-1.25, -1.25),
                                       color: Colors.black),
                                   Shadow(
                                       // bottomRight
-                                      offset: Offset(1.5, -1.5),
+                                      offset: Offset(1.25, -1.25),
                                       color: Colors.black),
                                   Shadow(
                                       // topRight
-                                      offset: Offset(1.5, 1.5),
+                                      offset: Offset(1.25, 1.25),
                                       color: Colors.black),
                                   Shadow(
                                       // topLeft
-                                      offset: Offset(-1.5, 1.5),
+                                      offset: Offset(-1.25, 1.25),
                                       color: Colors.black),
                                 ],
                               ),
@@ -191,3 +195,4 @@ class SpecialtyPizzasMenu extends StatelessWidget {
     );
   }
 }
+
