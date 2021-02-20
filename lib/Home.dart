@@ -93,16 +93,8 @@ class Home extends StatelessWidget {
               Container(
                 child: FlatButton(
                   onPressed: () {
-                    print('Build Your Own has been clicked');
-                    ShoppingCartItem test = new ShoppingCartItem();
-                    test.pizzaType = PizzaType.createyourown;
-                    _shoppingCart.add(test);
-
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                CreateYourOwn(shoppingCart: _shoppingCart)));
+                    print('Create your own has been clicked');
+                    Navigator.pushNamed(context, '/CreateYourOwn');
                   },
                   child: Stack(
                     children: <Widget>[
