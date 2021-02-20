@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pizza_ordering_app/ShoppingCart.dart';
+import 'package:pizza_ordering_app/ShoppingCartItem.dart';
 
 class CreateYourOwn extends StatefulWidget {
+  final List<ShoppingCartItem> shoppingCart;
+  CreateYourOwn({Key key, this.shoppingCart}) : super(key: key);
+
   @override
   _CreateYourOwnState createState() => _CreateYourOwnState();
 }
@@ -21,6 +25,9 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
 
   @override
   Widget build(BuildContext context) {
+    List<ShoppingCartItem> _shoppingCart =
+        widget.shoppingCart != null ? widget.shoppingCart : [];
+
     return Scaffold(
         appBar: AppBar(
             title: Text('Perilous Pizza'),
@@ -406,8 +413,17 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                                     //TODO: figure out how to route
                                     //all data to the shopping cart
                                     print('Item added to cart!');
-                                    Navigator.pushNamed(
-                                        context, '/ShoppingCart');
+
+                                    ShoppingCartItem test =
+                                        new ShoppingCartItem();
+                                    test.pizzaType = PizzaType.specialty;
+                                    _shoppingCart.add(test);
+
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => ShoppingCart(
+                                                shoppingCart: _shoppingCart)));
                                   },
                                   child: Text(
                                     'Add To Cart',

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pizza_ordering_app/CreateYourOwn.dart';
+import 'package:pizza_ordering_app/ShoppingCartItem.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    List<ShoppingCartItem> _shoppingCart = [];
+
     return Scaffold(
       appBar: AppBar(
           title: Text('Perilous Pizza'),
@@ -90,7 +94,15 @@ class Home extends StatelessWidget {
                 child: FlatButton(
                   onPressed: () {
                     print('Build Your Own has been clicked');
-                    Navigator.pushNamed(context, '/CreateYourOwn');
+                    ShoppingCartItem test = new ShoppingCartItem();
+                    test.pizzaType = PizzaType.createyourown;
+                    _shoppingCart.add(test);
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                CreateYourOwn(shoppingCart: _shoppingCart)));
                   },
                   child: Stack(
                     children: <Widget>[
