@@ -32,6 +32,7 @@ class __StateShoppingCartDataState extends State<StateShoppingCartData> {
     setState(() => cart.add(item));
   }
 
+
   @override
   Widget build(BuildContext context) => ShoppingCartData(
       child: widget.child, cart: cart, stateShoppingCartData: this);

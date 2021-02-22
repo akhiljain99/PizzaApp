@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pizza_ordering_app/CreateYourOwn.dart';
+import 'package:pizza_ordering_app/ShoppingCartData.dart';
+import 'package:pizza_ordering_app/ShoppingCartItem.dart';
 import 'package:pizza_ordering_app/SpecialtyPizzaPurchase.dart';
 
 class SpecialtyPizzasMenu extends StatelessWidget {
@@ -37,10 +40,12 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                 child: FlatButton(
                   onPressed: () {
                     print('Specialty Pizzas has been clicked');
-                    Navigator.pushNamed(context, '/SpecialtyPizzaPurchase');
+                    Navigator.pushNamed(context, '/SpecialtyPizzaPurchase', arguments: {
+                      'pizzaType': "Supreme",
+                    });
                   },
                   child: Column(
-                    children: <Widget>[
+                    children: <Widget>[ 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

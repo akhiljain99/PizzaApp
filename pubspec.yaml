@@ -50,6 +50,9 @@ flutter:
      - Assets/BuildYourOwn.jpg
      - Assets/appBackground.jpg
      - Assets/SupremePizza.jpg
+     - Assets/BarbecueGoat.jpg
+     - Assets/SicilianPizza.jpg
+     - Assets/GardenFresh.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
