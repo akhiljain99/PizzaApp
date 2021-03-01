@@ -6,6 +6,7 @@ import 'package:pizza_ordering_app/SpecialtyPizzas.dart';
 import 'package:pizza_ordering_app/SpecialtyPizzaPurchase.dart';
 import 'package:pizza_ordering_app/Home.dart';
 import 'package:pizza_ordering_app/ShoppingCart.dart';
+import 'package:pizza_ordering_app/Checkout.dart';
 
 void main() => runApp(StateShoppingCartData(
         child: MaterialApp(initialRoute: '/Home', routes: {
@@ -14,4 +15,5 @@ void main() => runApp(StateShoppingCartData(
       '/SpecialtyPizzasMenu': (context) => SpecialtyPizzasMenu(),
       '/SpecialtyPizzaPurchase': (context) => SpecialtyPizzaPurchase(),
       '/ShoppingCart': (context) => ShoppingCart(),
+      '/Checkout' : (context) => Checkout(),
     })));

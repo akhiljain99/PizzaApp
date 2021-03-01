@@ -14,12 +14,16 @@ enum Cheese { normal, extra, extreme }
 class _CreateYourOwnState extends State<CreateYourOwn> {
   int _size = 2;
   int _crust = 1;
+  double _price = 0;
   bool _pepperoni = false;
   bool _sausage = false;
   bool _mushrooms = false;
   bool _olives = false;
   bool _peppers = false;
   Cheese _cheese = Cheese.normal;
+  String _toppingList = "";
+  String _sizeStr = "";
+  ShoppingCartItem createYourOwn =  new ShoppingCartItem();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +33,13 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
             centerTitle: true,
             backgroundColor: Color.fromARGB(255, 122, 0, 0),
             actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.home_rounded, color: Colors.white),
+                onPressed: () {
+                  print("home as been clicked");
+                  Navigator.pushNamed(context, '/Home');
+                },
+              ),
               IconButton(
                 icon: Icon(Icons.shopping_cart_rounded, color: Colors.white),
                 onPressed: () {
@@ -407,14 +418,64 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                                   onPressed: () {
                                     //TODO: figure out how to route
                                     //all data to the shopping cart
-                                    ShoppingCartItem test =
-                                        new ShoppingCartItem();
-                                    test.pizzaType = PizzaType.createyourown;
+
+                                    if (_size == 1){
+                                      _price += 10.00;
+                                      _sizeStr = "Small";
+                                    }
+                                    else if (_size == 2){
+                                      _price += 11.00;
+                                      _sizeStr = "Medium";
+                                    }
+                                    else if (_size == 3){
+                                      _price += 12.00;
+                                      _sizeStr = "Large";
+                                    }
+
+                                    if (_cheese == Cheese.extra)_price += 0.25;
+                                    else if (_cheese == Cheese.extreme)_price += 0.5;
+
+                                    if (_crust == 1) createYourOwn.crust = "New York Style";
+                                    else if (_crust == 2) createYourOwn.crust = "Chicago Style";
+                                    else if (_crust == 3) createYourOwn.crust = "Flatbread";
+                                    else if (_crust == 4) createYourOwn.crust = "Gluten-Free";
+                                    else if (_crust == 5) createYourOwn.crust = "Vegan-Friendly";
+
+                                    if (_peppers == true){
+                                      _toppingList += "\tPeppers \n";
+                                      //createYourOwn.createYourOwnDetails.add("Peppers");
+                                      _price += 0.5;
+                                    }
+                                    if (_olives == true){
+                                      _toppingList += "\tOlives \n";
+                                      //createYourOwn.createYourOwnDetails.add("Olives");
+                                      _price += 0.5;
+                                    }
+                                    if (_mushrooms == true){
+                                      _toppingList += "\tMushrooms \n";
+                                      //createYourOwn.createYourOwnDetails.add("Mushrooms");
+                                      _price += 0.5;
+                                    }
+                                    if (_sausage == true){
+                                      _toppingList +="Sausage \n";
+                                      //createYourOwn.createYourOwnDetails.add("Sausage");
+                                      _price += 0.5;
+                                    }
+                                    if (_pepperoni == true){
+                                      _toppingList += "Pepperoni \n";
+                                      //createYourOwn.createYourOwnDetails.add("Pepperoni");
+                                      _price += 0.5;
+                                    }
+                                    createYourOwn.pizzaType = PizzaType.createyourown;
+                                    createYourOwn.createYourOwnDetails = _toppingList;
+                                    createYourOwn.price = _price;
+                                    createYourOwn.size = _sizeStr;
                                     ShoppingCartData.of(context)
-                                        .addCartItem(test);
+                                        .addCartItem(createYourOwn);
                                     Navigator.pushNamed(
                                         context, '/ShoppingCart');
                                     print('Item added to cart!');
+                                    print(createYourOwn);
                                   },
                                   child: Text(
                                     'Add To Cart',

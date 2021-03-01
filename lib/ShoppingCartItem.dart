@@ -7,5 +7,5 @@ class ShoppingCartItem {
   String createYourOwnDetails;
   double price;
   String size;
-
+  String crust;
 }

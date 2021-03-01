@@ -51,7 +51,14 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 122, 0, 0),
          actions: <Widget>[
-            IconButton(
+           IconButton(
+             icon: Icon(Icons.home_rounded, color: Colors.white),
+             onPressed: () {
+               print("home as been clicked");
+               Navigator.pushNamed(context, '/Home');
+             },
+           ),
+           IconButton(
               icon: Icon(Icons.shopping_cart_rounded, color: Colors.white),
               onPressed: () {
                 //do something
@@ -175,9 +182,18 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                           onChanged: (value) {
                             setState(() {
                               _size = value;
-                              if(_size == 1) item.size = 'Small';
-                              else if(_size == 2) item.size = 'Medium';
-                              else item.size = 'Large';
+                              if(_size == 1) {
+                                item.size = 'Small';
+                                item.price = 14.00;
+                              }
+                              else if(_size == 2) {
+                                item.size = 'Medium';
+                                item.price = 15.00;
+                              }
+                              else {
+                                item.size = 'Large';
+                                item.price = 16.00;
+                              }
                             });
                           },
                         )
@@ -196,6 +212,7 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                           padding: EdgeInsets.all(15),
                           color: Color.fromARGB(255, 122, 0, 0),
                           onPressed: () {
+                            item.pizzaType = PizzaType.specialty;
                             item.specialtyType = pizzaName;
                             ShoppingCartData.of(context).addCartItem(item);
                             Navigator.pushNamed(context, '/ShoppingCart');

@@ -15,6 +15,13 @@ class SpecialtyPizzasMenu extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 122, 0, 0),
           actions: <Widget>[
             IconButton(
+              icon: Icon(Icons.home_rounded, color: Colors.white),
+              onPressed: () {
+                print("home as been clicked");
+                Navigator.pushNamed(context, '/Home');
+              },
+            ),
+            IconButton(
               icon: Icon(Icons.shopping_cart_rounded, color: Colors.white),
               onPressed: () {
                 //do something
