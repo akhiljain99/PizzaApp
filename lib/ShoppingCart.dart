@@ -45,177 +45,209 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 },
             )
           ]),
-        body: //Column(
-          //children: <Widget>[
-            _shoppingCart.length > 0
-            ? ListView.builder(
-            padding: const EdgeInsets.all(8),
-            itemCount: _shoppingCart.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                  child: Column(
-                    children: <Widget>[
-                      ((){
-                          if (_shoppingCart[index].pizzaType == PizzaType.createyourown){
-                            return Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black),
-                                    borderRadius: BorderRadius.circular(8.0)),
-                                width: 350.0,
-                                //height: 450.0,
-                                margin: EdgeInsets.symmetric(vertical: 40.0),
-                                child: Column(
-                                    children: [
-                                      Text(
-                                        'Create Your Own',
-                                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                        "Price: \$${_shoppingCart[index].price}",
-                                        style: TextStyle(fontSize: 18),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                      Text(
-                                        'Size: ${_shoppingCart[index].size}',
-                                        style: TextStyle(fontSize: 18),
-                                      ),
-                                      Text(
-                                        'Crust: ${_shoppingCart[index].crust}',
-                                        style: TextStyle(fontSize: 18),
-                                      ),
-                                      Text(
-                                        'Toppings: \n${_shoppingCart[index].createYourOwnDetails}',
-                                        style: TextStyle(fontSize: 18),
-                                      ),
-                                      FlatButton(
-                                        color: Color.fromARGB(255, 122, 0, 0),
-                                        onPressed: () {
-                                          //get cart items
-                                          List<ShoppingCartItem> cart =
-                                          ShoppingCartData.of(context).getCart();
-                                          //remove item from cart
-                                          cart.removeAt(index);
+        body: Column(
+               children: <Widget>[
+                      ListView.builder(
+                        shrinkWrap: true,
+                      padding: const EdgeInsets.all(8),
+                      itemCount: _shoppingCart.length,
+                      itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                          child: Column(
+                            children: <Widget>[
+                              Row(
+                                children: <Widget>[
+                                ((){
+                                  if (_shoppingCart[index].pizzaType == PizzaType.createyourown){
+                                    return Container(
+                                        decoration: BoxDecoration(
+                                            border: Border.all(color: Colors.black),
+                                            borderRadius: BorderRadius.circular(8.0)),
+                                        width: 350.0,
+                                        //height: 450.0,
+                                        margin: EdgeInsets.symmetric(vertical: 40.0),
+                                        child: Column(
+                                            children: [
+                                              Text(
+                                                'Create Your Own',
+                                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                                              ),
+                                              Text(
+                                                "Price: \$${_shoppingCart[index].price}",
+                                                style: TextStyle(fontSize: 18),
+                                                textAlign: TextAlign.left,
+                                              ),
+                                              Text(
+                                                'Size: ${_shoppingCart[index].size}',
+                                                style: TextStyle(fontSize: 18),
+                                              ),
+                                              Text(
+                                                'Crust: ${_shoppingCart[index].crust}',
+                                                style: TextStyle(fontSize: 18),
+                                              ),
+                                              Text(
+                                                'Toppings: \n${_shoppingCart[index].createYourOwnDetails}',
+                                                style: TextStyle(fontSize: 18),
+                                              ),
+                                              FlatButton(
+                                                color: Color.fromARGB(255, 122, 0, 0),
+                                                onPressed: () {
+                                                  //get cart items
+                                                  List<ShoppingCartItem> cart =
+                                                  ShoppingCartData.of(context).getCart();
+                                                  //remove item from cart
+                                                  cart.removeAt(index);
 
-                                          //update cart items
-                                          ShoppingCartData.of(context).updateCart(cart);
-                                          print(_shoppingCart);
+                                                  //update cart items
+                                                  ShoppingCartData.of(context).updateCart(cart);
+                                                  print(_shoppingCart);
 
-                                          //remove item from listview
-                                          setState(() {
-                                            _shoppingCart =
-                                                ShoppingCartData.of(context).getCart();
-                                          },);
-                                        },
-                                        child: Text(
-                                          'Remove Item',
-                                          style: TextStyle(
-                                              fontSize: 18.0,
-                                              color: Colors.white
-                                          ),
-                                          textAlign: TextAlign.right,
-                                        ),
-                                      ),
-                                      FlatButton(
-                                        color: Color.fromARGB(255, 122, 0, 0),
-                                        onPressed: () {
-                                          //do something
-                                        },
-                                        child: Text(
-                                          'Edit',
-                                          style: TextStyle(
-                                              fontSize: 18.0,
-                                              color: Colors.white
-                                          ),
-                                          textAlign: TextAlign.right,
-                                        ),
-                                      ),
-                                    ]));
-                          }
-                          else {
-                            return Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black),
-                                    borderRadius: BorderRadius.circular(8.0)),
-                                width: 350.0,
-                                //height: 450.0,
-                                margin: EdgeInsets.symmetric(vertical: 40.0),
-                                child: Column(
-                                    children: [
-                                      Text(
-                                        '${_shoppingCart[index].specialtyType}',
-                                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                        'Price: \$${_shoppingCart[index].price}',
-                                        style: TextStyle(fontSize: 18),
-                                      ),
-                                      Text(
-                                        'Size: ${_shoppingCart[index].size}\n',
-                                        style: TextStyle(fontSize: 18),
-                                      ),
-                                      FlatButton(
-                                        color: Color.fromARGB(255, 122, 0, 0),
-                                        onPressed: () {
-                                          //get cart items
-                                          List<ShoppingCartItem> cart =
-                                          ShoppingCartData.of(context).getCart();
-                                          //remove item from cart
-                                          cart.removeAt(index);
+                                                  //remove item from listview
+                                                  setState(() {
+                                                    _shoppingCart =
+                                                        ShoppingCartData.of(context).getCart();
+                                                  },);
+                                                },
+                                                child: Text(
+                                                  'Remove Item',
+                                                  style: TextStyle(
+                                                      fontSize: 18.0,
+                                                      color: Colors.white
+                                                  ),
+                                                  textAlign: TextAlign.right,
+                                                ),
+                                              ),
+                                              FlatButton(
+                                                color: Color.fromARGB(255, 122, 0, 0),
+                                                onPressed: () {
+                                                  //do something
+                                                },
+                                                child: Text(
+                                                  'Edit',
+                                                  style: TextStyle(
+                                                      fontSize: 18.0,
+                                                      color: Colors.white
+                                                  ),
+                                                  textAlign: TextAlign.right,
+                                                ),
+                                              ),
+                                            ]
+                                          )
+                                      );
+                                  }
+                                  else {
+                                    return Container(
+                                        decoration: BoxDecoration(
+                                            border: Border.all(color: Colors.black),
+                                            borderRadius: BorderRadius.circular(8.0)),
+                                        width: 350.0,
+                                        //height: 450.0,
+                                        margin: EdgeInsets.symmetric(vertical: 40.0),
+                                        child: Column(
+                                            children: [
+                                              Text(
+                                                '${_shoppingCart[index].specialtyType}',
+                                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                                              ),
+                                              Text(
+                                                'Price: \$${_shoppingCart[index].price}',
+                                                style: TextStyle(fontSize: 18),
+                                              ),
+                                              Text(
+                                                'Size: ${_shoppingCart[index].size}\n',
+                                                style: TextStyle(fontSize: 18),
+                                              ),
+                                              FlatButton(
+                                                color: Color.fromARGB(255, 122, 0, 0),
+                                                onPressed: () {
+                                                  //get cart items
+                                                  List<ShoppingCartItem> cart =
+                                                  ShoppingCartData.of(context).getCart();
+                                                  //remove item from cart
+                                                  cart.removeAt(index);
 
-                                          //update cart items
-                                          ShoppingCartData.of(context).updateCart(cart);
-                                          print(_shoppingCart);
+                                                  //update cart items
+                                                  ShoppingCartData.of(context).updateCart(cart);
+                                                  print(_shoppingCart);
 
-                                          //remove item from listview
-                                          setState(() {
-                                            _shoppingCart =
-                                                ShoppingCartData.of(context).getCart();
-                                          },);
-                                        },
-                                        child: Text(
-                                          'Remove Item',
-                                          style: TextStyle(
-                                              fontSize: 18.0,
-                                              color: Colors.white
-                                          ),
-                                          textAlign: TextAlign.right,
-                                        ),
-                                      ),
-                                      FlatButton(
-                                        color: Color.fromARGB(255, 122, 0, 0),
-                                        onPressed: () {
-                                          //do something
-                                        },
-                                        child: Text(
-                                          'Edit',
-                                          style: TextStyle(
-                                              fontSize: 18.0,
-                                              color: Colors.white
-                                          ),
-                                          textAlign: TextAlign.right,
-                                        ),
-                                      ),
-                                    ]));
-                          }
-                      }()),
-
+                                                  //remove item from listview
+                                                  setState(() {
+                                                    _shoppingCart =
+                                                        ShoppingCartData.of(context).getCart();
+                                                  },);
+                                                },
+                                                child: Text(
+                                                  'Remove Item',
+                                                  style: TextStyle(
+                                                      fontSize: 18.0,
+                                                      color: Colors.white
+                                                  ),
+                                                  textAlign: TextAlign.right,
+                                                ),
+                                              ),
+                                              FlatButton(
+                                                color: Color.fromARGB(255, 122, 0, 0),
+                                                onPressed: () {
+                                                  //do something
+                                                },
+                                                child: Text(
+                                                  'Edit',
+                                                  style: TextStyle(
+                                                      fontSize: 18.0,
+                                                      color: Colors.white
+                                                  ),
+                                                  textAlign: TextAlign.right,
+                                                ),
+                                              ),
+                                            ]
+                                          )
+                                      );
+                                  }
+                                }()),
+                                ],
+                              ),   
+                            ],   
+                          ),
+                      );
+                      }
+                      ),
+                  Row(
+                    children: [
+                      _shoppingCart.length <= 0 ?
+                        Center(
+                          child: Text('Cart is Empty', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
+                        ) : Center(
+                              child: Text(" "),
+                            ),
+                    ],
+                  ),
+                  Row(  
+                    children: [
+                      _shoppingCart.length > 0 ?
+                        FlatButton(
+                          padding: EdgeInsets.all(15),
+                          color: Color.fromARGB(255, 122, 0, 0),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/Checkout');
+                          },
+                          child: Text(
+                            'Checkout',
+                            style: TextStyle(
+                              fontSize: 30.0, 
+                              color: Colors.white
+                            ),
+                            textAlign: TextAlign.right,
+                          )
+                        ) : Center(
+                          child: Text(" "),
+                        )
+                    ],
+                  )
                 ],
-              ),
-              );
-            }
-        ) : Center(
-          child: Text(
-              'Cart is empty',
-          style: TextStyle(
-              fontSize: 30, fontWeight: FontWeight.bold
-          ),),
-        ),
-            /*Text(
-              'This will be a button',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),*///])
+              )
     );
   }
+
 }
 
 class ShoppingCartButton extends StatefulWidget {
