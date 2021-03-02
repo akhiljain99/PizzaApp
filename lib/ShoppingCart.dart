@@ -27,6 +27,12 @@ class ShoppingCart extends StatefulWidget {
 }
 
 class _ShoppingCartState extends State<ShoppingCart> {
+  double _price = 0;
+  double _tax = 0;
+  double _total = 0;
+  String _number;
+  String _taxStr;
+  String _totalStr;
   @override
   Widget build(BuildContext context) {
     var _shoppingCart = ShoppingCartData.of(context).getCart();
@@ -58,18 +64,20 @@ class _ShoppingCartState extends State<ShoppingCart> {
                             Row(
                               children: <Widget>[
                                 (() {
+                                  _number = _shoppingCart[index].price.toStringAsFixed(2);
+                                  _price += _shoppingCart[index].price;
                                   if (_shoppingCart[index].pizzaType ==
                                       PizzaType.createyourown) {
                                     return Container(
                                         decoration: BoxDecoration(
                                             border:
-                                                Border.all(color: Colors.black),
+                                            Border.all(color: Colors.black),
                                             borderRadius:
-                                                BorderRadius.circular(8.0)),
+                                            BorderRadius.circular(16.0)),
                                         width: 350.0,
                                         //height: 450.0,
                                         margin: EdgeInsets.symmetric(
-                                            vertical: 40.0),
+                                            vertical: 10.0),
                                         child: Column(children: [
                                           Text(
                                             'Create Your Own',
@@ -78,7 +86,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           Text(
-                                            "Price: \$${_shoppingCart[index].price}",
+                                            "Price: \$${_number}",
                                             style: TextStyle(fontSize: 18),
                                             textAlign: TextAlign.left,
                                           ),
@@ -96,12 +104,13 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                           ),
                                           FlatButton(
                                             color:
-                                                Color.fromARGB(255, 122, 0, 0),
+                                            Color.fromARGB(255, 122, 0, 0),
                                             onPressed: () {
                                               //get cart items
+                                              _price = _price - _shoppingCart[index].price;
                                               List<ShoppingCartItem> cart =
-                                                  ShoppingCartData.of(context)
-                                                      .getCart();
+                                              ShoppingCartData.of(context)
+                                                  .getCart();
                                               //remove item from cart
                                               cart.removeAt(index);
 
@@ -112,10 +121,10 @@ class _ShoppingCartState extends State<ShoppingCart> {
 
                                               //remove item from listview
                                               setState(
-                                                () {
+                                                    () {
                                                   _shoppingCart =
                                                       ShoppingCartData.of(
-                                                              context)
+                                                          context)
                                                           .getCart();
                                                 },
                                               );
@@ -130,7 +139,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                           ),
                                           FlatButton(
                                             color:
-                                                Color.fromARGB(255, 122, 0, 0),
+                                            Color.fromARGB(255, 122, 0, 0),
                                             onPressed: () {
                                               //do something
                                             },
@@ -147,13 +156,13 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                     return Container(
                                         decoration: BoxDecoration(
                                             border:
-                                                Border.all(color: Colors.black),
+                                            Border.all(color: Colors.black),
                                             borderRadius:
-                                                BorderRadius.circular(8.0)),
+                                            BorderRadius.circular(16.0)),
                                         width: 350.0,
                                         //height: 450.0,
                                         margin: EdgeInsets.symmetric(
-                                            vertical: 40.0),
+                                            vertical: 10.0),
                                         child: Column(children: [
                                           Text(
                                             '${_shoppingCart[index].specialtyType}',
@@ -162,7 +171,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           Text(
-                                            'Price: \$${_shoppingCart[index].price}',
+                                            'Price: \$${_number}',
                                             style: TextStyle(fontSize: 18),
                                           ),
                                           Text(
@@ -171,12 +180,13 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                           ),
                                           FlatButton(
                                             color:
-                                                Color.fromARGB(255, 122, 0, 0),
+                                            Color.fromARGB(255, 122, 0, 0),
                                             onPressed: () {
+                                              _price = _price - _shoppingCart[index].price;
                                               //get cart items
                                               List<ShoppingCartItem> cart =
-                                                  ShoppingCartData.of(context)
-                                                      .getCart();
+                                              ShoppingCartData.of(context)
+                                                  .getCart();
                                               //remove item from cart
                                               cart.removeAt(index);
 
@@ -187,10 +197,10 @@ class _ShoppingCartState extends State<ShoppingCart> {
 
                                               //remove item from listview
                                               setState(
-                                                () {
+                                                    () {
                                                   _shoppingCart =
                                                       ShoppingCartData.of(
-                                                              context)
+                                                          context)
                                                           .getCart();
                                                 },
                                               );
@@ -205,7 +215,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                           ),
                                           FlatButton(
                                             color:
-                                                Color.fromARGB(255, 122, 0, 0),
+                                            Color.fromARGB(255, 122, 0, 0),
                                             onPressed: () {
                                               //do something
                                             },
@@ -230,35 +240,44 @@ class _ShoppingCartState extends State<ShoppingCart> {
               children: [
                 _shoppingCart.length <= 0
                     ? Center(
-                        child: Text('Cart is Empty',
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold)))
+                    child: Text('Cart is Empty',
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold)))
                     : Center(
-                        child: Text(" "),
-                      ),
+                  child: Text(" "),
+                ),
               ],
             ),
             Row(
               children: [
                 _shoppingCart.length > 0
                     ? FlatButton(
-                        padding: EdgeInsets.all(15),
-                        color: Color.fromARGB(255, 122, 0, 0),
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/Checkout');
-                        },
-                        child: Text(
-                          'Checkout',
-                          style: TextStyle(fontSize: 30.0, color: Colors.white),
-                          textAlign: TextAlign.right,
-                        ))
+                    padding: EdgeInsets.all(15),
+                    color: Color.fromARGB(255, 122, 0, 0),
+                    onPressed: () {
+                      _tax = _price * 0.07;
+                      _total = _price + _tax;
+                      _number = _price.toStringAsFixed(2);
+                      _taxStr = _tax.toStringAsFixed(2);
+                      _totalStr = _total.toStringAsFixed(2);
+
+                      Navigator.pushNamed(
+                          context, '/Checkout',
+                          arguments: {'price': _number, 'tax': _taxStr, 'total': _totalStr});
+                    },
+                    child: Text(
+                      'Checkout',
+                      style: TextStyle(fontSize: 30.0, color: Colors.white),
+                      textAlign: TextAlign.right,
+                    ))
                     : Center(
-                        child: Text(" "),
-                      )
+                  child: Text(" "),
+                )
               ],
             )
           ],
-        ));
+        )
+    );
   }
 }
 
@@ -269,11 +288,5 @@ class ShoppingCartButton extends StatefulWidget {
 
 class _CheckoutButton extends State<ShoppingCartButton> {
   @override
-  Widget build(BuildContext context) {
-    return Container(
-        child: Text(
-      'This will be a button',
-      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-    ));
-  }
+  Widget build(BuildContext context) {}
 }

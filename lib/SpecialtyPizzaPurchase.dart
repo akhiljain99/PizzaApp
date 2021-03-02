@@ -182,18 +182,6 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                           onChanged: (value) {
                             setState(() {
                               _size = value;
-                              if(_size == 1) {
-                                item.size = 'Small';
-                                item.price = 14.00;
-                              }
-                              else if(_size == 2) {
-                                item.size = 'Medium';
-                                item.price = 15.00;
-                              }
-                              else {
-                                item.size = 'Large';
-                                item.price = 16.00;
-                              }
                             });
                           },
                         )
@@ -214,6 +202,18 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                           onPressed: () {
                             item.pizzaType = PizzaType.specialty;
                             item.specialtyType = pizzaName;
+                            if(_size == 1) {
+                              item.size = 'Small';
+                              item.price = 14.00;
+                            }
+                            else if(_size == 2) {
+                              item.size = 'Medium';
+                              item.price = 15.00;
+                            }
+                            else {
+                              item.size = 'Large';
+                              item.price = 16.00;
+                            }
                             ShoppingCartData.of(context).addCartItem(item);
                             Navigator.pushNamed(context, '/ShoppingCart');
                           },
