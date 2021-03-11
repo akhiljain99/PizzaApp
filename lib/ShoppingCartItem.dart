@@ -8,4 +8,6 @@ class ShoppingCartItem {
   double price;
   String size;
   String crust;
+  int quantity = 1;
+  bool remove = false;
 }

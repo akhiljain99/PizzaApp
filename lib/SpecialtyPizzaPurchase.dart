@@ -29,7 +29,7 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
   Map data = {};
   String pizzaName = '';
   String fileName = '';
-  ShoppingCartItem item = new ShoppingCartItem();
+  
   
   @override
   Widget build(BuildContext context) {
@@ -200,6 +200,7 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                           padding: EdgeInsets.all(15),
                           color: Color.fromARGB(255, 122, 0, 0),
                           onPressed: () {
+                            ShoppingCartItem item = new ShoppingCartItem();
                             item.pizzaType = PizzaType.specialty;
                             item.specialtyType = pizzaName;
                             if(_size == 1) {
