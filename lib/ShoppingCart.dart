@@ -318,27 +318,50 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   Column(
-                                                    children: [
-                                                      Text(
-                                                        '${_shoppingCart[index].specialtyType}',
-                                                        style: TextStyle(
-                                                            fontSize: 18,
-                                                            fontWeight: FontWeight.bold),
-                                                      ),
+                                                    children: <Widget>[
+                                                      Container(
+                                                        child: ClipRRect(
+                                                          borderRadius: BorderRadius.circular(5.0),
+                                                          child: Image.asset(
+                                                            'Assets/SicilianPizza.jpg',
+                                                            height: 100.0,
+                                                            width: 100.0,
+                                                            fit: BoxFit.fill,
+                                                          )
+                                                        )
+                                                      )
                                                     ],
                                                   ),
-                                                  Column(
+                                                  Column(   
                                                     children: [
-                                                      Padding(padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
-                                                        child:  Text(
-                                                            '\$${_number}',
-                                                            style: TextStyle(fontSize: 18, ),
+                                                      Row(   
+                                                        //mainAxisAlignment: MainAxisAlignment.end,
+                                                        children: [
+                                                          Column(
+                                                            children: [
+                                                              Text(
+                                                                '${_shoppingCart[index].specialtyType}',
+                                                                style: TextStyle(
+                                                                    fontSize: 18,
+                                                                    fontWeight: FontWeight.bold),
+                                                              ),
+                                                            ],
                                                           ),
-                                                      
+                                                          Column(
+                                                            children: [
+                                                              Padding(padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                                                child:  Text(
+                                                                    '\$${_number}',
+                                                                    style: TextStyle(fontSize: 18, ),
+                                                                  ),
+                                                              )
+                                                            ],
+                                                          )
+                                                        ],
                                                       )
-                                                       
                                                     ],
                                                   )
+                                                  
                                                 ],
                                               ),
                                               Row(  
