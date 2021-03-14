@@ -68,7 +68,12 @@ class _ShoppingCartState extends State<ShoppingCart> {
                     itemCount: _shoppingCart.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
+                        padding: EdgeInsets.fromLTRB(14,0,0,0),
+                        alignment: Alignment.topCenter,
+                        //color: Colors.amber,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Row(
                               children: <Widget>[
@@ -79,345 +84,442 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                   if (_shoppingCart[index].pizzaType ==
                                       PizzaType.createyourown) {
                                     return Container(
+                                     // color: Colors.blue,
                                         decoration: BoxDecoration(
                                             border:
                                             Border.all(color: Colors.black),
                                             borderRadius:
-                                            BorderRadius.circular(16.0)),
-                                        width: 350.0,
+                                            BorderRadius.circular(5.0)),
+                                        width: 360.0,
+                                        padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                                         //height: 450.0,
                                         margin: EdgeInsets.symmetric(
                                             vertical: 10.0),
-                                        child: Column(children: [
-                                          Text(
-                                            'Create Your Own',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            "Price: \$${_number}",
-                                            style: TextStyle(fontSize: 18),
-                                            textAlign: TextAlign.left,
-                                          ),
-                                          Text(
-                                            'Size: ${_shoppingCart[index].size}',
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          Text(
-                                            'Crust: ${_shoppingCart[index].crust}',
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          Text(
-                                            'Toppings: \n${_shoppingCart[index].createYourOwnDetails}',
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          FlatButton(
-                                            color:
-                                            Color.fromARGB(255, 122, 0, 0),
-                                            onPressed: () {
-                                              //get cart items
-                                              _price = _price - _shoppingCart[index].price;
-                                              List<ShoppingCartItem> cart =
-                                              ShoppingCartData.of(context)
-                                                  .getCart();
-                                              //remove item from cart
-                                              cart.removeAt(index);
-
-                                              //update cart items
-                                              ShoppingCartData.of(context)
-                                                  .updateCart(cart);
-                                              print(_shoppingCart);
-
-                                              //remove item from listview
-                                              setState(
-                                                    () {
-                                                      _createYourOwnRemove = true;
-                                                      remove = true;
-                                                  _shoppingCart =
-                                                      ShoppingCartData.of(
-                                                          context)
-                                                          .getCart();
-                                                },
-                                              );
-                                            },
-                                            child: Text(
-                                              'Remove Item',
-                                              style: TextStyle(
-                                                  fontSize: 18.0,
-                                                  color: Colors.white),
-                                              textAlign: TextAlign.right,
-                                            ),
-                                          ),
-                                          Container(
-                                            width: 200,
-                                            decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.black)
-                                            ),
-                                            margin: EdgeInsets.fromLTRB(30, 5, 0, 5),
-                                            padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
-                                            child: DropdownButton(
-                                              isExpanded: true,
-                                              style: TextStyle(
-                                                fontSize: 25.0,
-                                                color: Colors.black,
-                                              ),
-                                              value: _shoppingCart[index].quantity,
-                                              items: [
-                                                DropdownMenuItem(
-                                                  child: Text("1"),
-                                                  value: 1, 
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Column(
+                                                  children: [
+                                                     Text(
+                                                      'Create Your Own',
+                                                      style: TextStyle(
+                                                          fontSize: 18,
+                                                          fontWeight: FontWeight.bold),
+                                                    ),
+                                                  ],
                                                 ),
-                                                DropdownMenuItem(
-                                                  child: Text("2"),
-                                                  value: 2, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("3"),
-                                                  value: 3, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("4"),
-                                                  value: 4, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("5"),
-                                                  value: 5, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("6"),
-                                                  value: 6, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("7"),
-                                                  value: 7, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("8"),
-                                                  value: 8, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("9"),
-                                                  value: 9, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("10"),
-                                                  value: 10, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("11"),
-                                                  value: 11, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("12"),
-                                                  value: 12, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("13"),
-                                                  value: 13, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("14"),
-                                                  value: 14, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("15"),
-                                                  value: 15, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("16"),
-                                                  value: 16, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("17"),
-                                                  value: 17, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("18"),
-                                                  value: 18, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("19"),
-                                                  value: 19, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("20"),
-                                                  value: 20, 
-                                                ),
+                                                Column(
+                                                  children: [
+                                                    Padding(
+                                                      padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                                      child: Text(
+                                                            '\$${_number}',
+                                                            style: TextStyle(fontSize: 18, ),
+                                                          ),
+                                                    )
+                                                  ],
+                                                )
                                               ],
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  onChange = true;
-                                                  _shoppingCart[index].quantity = value;
-                                                });
-                                              },
-                                            )
-                                          )
-                                        ]));
+                                            ),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Column(
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Text('Qty: ', style: TextStyle(fontSize: 20.0),),
+                                                        Container(
+                                                          width: 40,
+                                                          height: 35,
+                                                          margin:EdgeInsets.fromLTRB(5, 5, 0, 5),
+                                                          child: DropdownButton(
+                                                            isExpanded: true,
+                                                            style: TextStyle(
+                                                              fontSize: 20.0,
+                                                              color: Colors.black,
+                                                            ),
+                                                            value: _shoppingCart[index].quantity,
+                                                            items: [
+                                                              DropdownMenuItem(
+                                                                child: Text("1"),
+                                                                value: 1, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("2"),
+                                                                value: 2, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("3"),
+                                                                value: 3, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("4"),
+                                                                value: 4, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("5"),
+                                                                value: 5, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("6"),
+                                                                value: 6, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("7"),
+                                                                value: 7, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("8"),
+                                                                value: 8, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("9"),
+                                                                value: 9, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("10"),
+                                                                value: 10, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("11"),
+                                                                value: 11, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("12"),
+                                                                value: 12, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("13"),
+                                                                value: 13, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("14"),
+                                                                value: 14, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("15"),
+                                                                value: 15, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("16"),
+                                                                value: 16, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("17"),
+                                                                value: 17, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("18"),
+                                                                value: 18, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("19"),
+                                                                value: 19, 
+                                                              ),
+                                                              DropdownMenuItem(
+                                                                child: Text("20"),
+                                                                value: 20, 
+                                                              ),
+                                                            ],
+                                                            onChanged: (value) {
+                                                              setState(() {
+                                                                onChange = true;
+                                                                _shoppingCart[index].quantity = value;
+                                                              });
+                                                            },
+                                                          )
+                                                        )
+                                                      ],
+                                                    )
+                                                  ],
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Padding(padding: EdgeInsets.fromLTRB(0,0,5,0),
+                                                      child: FlatButton( // FlatButton for the REMOVE BUTTON
+                                                          color: Color.fromARGB(255, 122, 0, 0),
+                                                          onPressed: () {
+                                                            _price = _price - _shoppingCart[index].price;  // what does this line do???
+                                                            //get cart items
+                                                            List<ShoppingCartItem> cart =
+                                                            ShoppingCartData.of(context)
+                                                                .getCart();
+                                                            //remove item from cart
+                                                            cart.removeAt(index);
+                                                            //update cart items
+                                                            ShoppingCartData.of(context)
+                                                                .updateCart(cart);
+                                                            print(_shoppingCart);
+
+                                                            //remove item from listview
+                                                            setState((){
+                                                                remove = true;
+                                                                _shoppingCart = ShoppingCartData.of(context).getCart();
+                                                              },
+                                                            );
+                                                          },
+                                                          child: Text(
+                                                            'Remove',
+                                                            style: TextStyle(
+                                                                fontSize: 15.0,
+                                                                color: Colors.white),
+                                                            textAlign: TextAlign.right,
+                                                          ),
+                                                        ),
+                                                    )
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                            Column(
+                                              children: [
+                                                ExpansionTile(
+                                                  title: Text('Show Details'),
+                                                  children: [
+                                                    Text(
+                                                      'Size: ${_shoppingCart[index].size}',
+                                                      style: TextStyle(fontSize: 18),
+                                                    ),
+                                                    Text(
+                                                      'Crust: ${_shoppingCart[index].crust}',
+                                                      style: TextStyle(fontSize: 18),
+                                                    ),
+                                                    Text(
+                                                      'Toppings: \n${_shoppingCart[index].createYourOwnDetails}',
+                                                      style: TextStyle(fontSize: 18),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ]
+                                        )
+                                      );
                                   } else {
                                     return Container(
+                                      //color: Colors.blue,
                                         decoration: BoxDecoration(
                                             border:
                                             Border.all(color: Colors.black),
                                             borderRadius:
-                                            BorderRadius.circular(16.0)),
-                                        width: 350.0,
+                                            BorderRadius.circular(5.0)),
+                                        width: 360.0,
+                                        padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                                         //height: 450.0,
                                         margin: EdgeInsets.symmetric(
                                             vertical: 10.0),
-                                        child: Column(children: [
-                                          Text(
-                                            '${_shoppingCart[index].specialtyType}',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            'Price: \$${_number}',
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          Text(
-                                            'Size: ${_shoppingCart[index].size}\n',
-                                            style: TextStyle(fontSize: 18),
-                                          ),
-                                          FlatButton( // FlatButton for the remove button
-                                            color:
-                                            Color.fromARGB(255, 122, 0, 0),
-                                            onPressed: () {
-                                              _price = _price - _shoppingCart[index].price;
-                                              //get cart items
-                                              List<ShoppingCartItem> cart =
-                                              ShoppingCartData.of(context)
-                                                  .getCart();
-                                              
-                                              //remove item from cart
-                                              cart.removeAt(index);
-
-                                              //update cart items
-                                              ShoppingCartData.of(context)
-                                                  .updateCart(cart);
-                                              print(_shoppingCart);
-
-                                              //remove item from listview
-                                              setState((){
-                                                  remove = true;
-                                                  _shoppingCart = ShoppingCartData.of(context).getCart();
-                                                },
-                                              );
-                                            },
-                                            child: Text(
-                                              'Remove Item',
-                                              style: TextStyle(
-                                                  fontSize: 18.0,
-                                                  color: Colors.white),
-                                              textAlign: TextAlign.right,
-                                            ),
-                                          ),
-                                          Container(
-                                            width: 200,
-                                            decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.black)
-                                            ),
-                                            margin: EdgeInsets.fromLTRB(30, 5, 0, 5),
-                                            padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
-                                            child: DropdownButton(
-                                              isExpanded: true,
-                                              style: TextStyle(
-                                                fontSize: 25.0,
-                                                color: Colors.black,
+                                        child: 
+                                          Column(
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Column(
+                                                    children: [
+                                                      Text(
+                                                        '${_shoppingCart[index].specialtyType}',
+                                                        style: TextStyle(
+                                                            fontSize: 18,
+                                                            fontWeight: FontWeight.bold),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    children: [
+                                                      Padding(padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                                        child:  Text(
+                                                            '\$${_number}',
+                                                            style: TextStyle(fontSize: 18, ),
+                                                          ),
+                                                      
+                                                      )
+                                                       
+                                                    ],
+                                                  )
+                                                ],
                                               ),
-                                              value: _shoppingCart[index].quantity,
-                                              items: [
-                                                DropdownMenuItem(
-                                                  child: Text("1"),
-                                                  value: 1, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("2"),
-                                                  value: 2, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("3"),
-                                                  value: 3, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("4"),
-                                                  value: 4, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("5"),
-                                                  value: 5, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("6"),
-                                                  value: 6, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("7"),
-                                                  value: 7, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("8"),
-                                                  value: 8, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("9"),
-                                                  value: 9, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("10"),
-                                                  value: 10, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("11"),
-                                                  value: 11, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("12"),
-                                                  value: 12, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("13"),
-                                                  value: 13, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("14"),
-                                                  value: 14, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("15"),
-                                                  value: 15, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("16"),
-                                                  value: 16, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("17"),
-                                                  value: 17, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("18"),
-                                                  value: 18, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("19"),
-                                                  value: 19, 
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text("20"),
-                                                  value: 20, 
-                                                ),
-                                              ],
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  onChange = true;
-                                                  _shoppingCart[index].quantity = value;
-                                                });
-                                              },
-                                            )
+                                              Row(  
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Column(
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          Text('Qty: ', style: TextStyle(fontSize: 20.0)),
+                                                          Container(
+                                                            width: 40,
+                                                            height: 35,
+                                                            // decoration: BoxDecoration(
+                                                            //   border: Border.all(color: Colors.black)
+                                                            // ),
+                                                            margin: EdgeInsets.fromLTRB(5, 5, 0, 5),
+                                                            // padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
+                                                            child: DropdownButton(
+                                                              isExpanded: true,
+                                                              style: TextStyle(
+                                                                fontSize: 20.0,
+                                                                color: Colors.black,
+                                                              ),
+                                                              value: _shoppingCart[index].quantity,
+                                                              items: [
+                                                                DropdownMenuItem(
+                                                                  child: Text("1"),
+                                                                  value: 1, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("2"),
+                                                                  value: 2, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("3"),
+                                                                  value: 3, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("4"),
+                                                                  value: 4, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("5"),
+                                                                  value: 5, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("6"),
+                                                                  value: 6, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("7"),
+                                                                  value: 7, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("8"),
+                                                                  value: 8, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("9"),
+                                                                  value: 9, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("10"),
+                                                                  value: 10, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("11"),
+                                                                  value: 11, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("12"),
+                                                                  value: 12, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("13"),
+                                                                  value: 13, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("14"),
+                                                                  value: 14, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("15"),
+                                                                  value: 15, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("16"),
+                                                                  value: 16, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("17"),
+                                                                  value: 17, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("18"),
+                                                                  value: 18, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("19"),
+                                                                  value: 19, 
+                                                                ),
+                                                                DropdownMenuItem(
+                                                                  child: Text("20"),
+                                                                  value: 20, 
+                                                                ),
+                                                              ],
+                                                              onChanged: (value) {
+                                                                setState(() {
+                                                                  onChange = true;
+                                                                  _shoppingCart[index].quantity = value;
+                                                                });
+                                                              },
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    children: [
+                                                      Padding(padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                                        child: FlatButton( // FlatButton for the REMOVE BUTTON
+                                                          color: Color.fromARGB(255, 122, 0, 0),
+                                                          onPressed: () {
+                                                            _price = _price - _shoppingCart[index].price;  // what does this line do???
+                                                            //get cart items
+                                                            List<ShoppingCartItem> cart =
+                                                            ShoppingCartData.of(context)
+                                                                .getCart();
+                                                            //remove item from cart
+                                                            cart.removeAt(index);
+                                                            //update cart items
+                                                            ShoppingCartData.of(context)
+                                                                .updateCart(cart);
+                                                            print(_shoppingCart);
+
+                                                            //remove item from listview
+                                                            setState((){
+                                                                remove = true;
+                                                                _shoppingCart = ShoppingCartData.of(context).getCart();
+                                                              },
+                                                            );
+                                                          },
+                                                          child: Text(
+                                                            'Remove',
+                                                            style: TextStyle(
+                                                                fontSize: 15.0,
+                                                                color: Colors.white),
+                                                            textAlign: TextAlign.right,
+                                                          ),
+                                                        ),
+                                                      )
+                                                      
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
+                                              Column( 
+                                                children: [
+                                                  ExpansionTile(
+                                                    title: Text('Show Details'),
+                                                    children: [
+                                                      Text(
+                                                        'Size: ${_shoppingCart[index].size}\n',
+                                                        style: TextStyle(fontSize: 18),
+                                                      ),
+                                                    ]
+                                                  ),
+                                                ],
+                                              ),
+                                              // Divider(
+                                              //   height: 20,
+                                              //   thickness: 5,
+                                              //   indent: 20,
+                                              //   endIndent: 20,
+                                              // )   
+                                           ]
                                           )
-                                        ]));
+                                      );
                                   }
                                 }()),
                               ],
@@ -428,7 +530,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                     }
                   )
                 ),
-              Row(
+              Row( // this row is for the "Cart is Empty" text. TODO: STYLE IT SO IT LOOKS GOOD
                 children: [
                   _shoppingCart.length <= 0
                       ? Center(
@@ -440,7 +542,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
                   ),
                 ],
               ),
-              Row(
+              Row(    // this row is for the checkout button. Igonre this for now
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _shoppingCart.length > 0
                       ? FlatButton(
