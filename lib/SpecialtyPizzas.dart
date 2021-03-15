@@ -43,7 +43,7 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0)),
                 width: 350.0,
                 height: 450.0,
-                margin: EdgeInsets.symmetric(vertical: 40.0),
+                margin: EdgeInsets.symmetric(vertical: 15.0),
                 child: FlatButton(
                   onPressed: () {
                     print('Specialty Pizzas has been clicked');
@@ -150,7 +150,7 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0)),
                 width: 350.0,
                 height: 415.0,
-                margin: EdgeInsets.symmetric(vertical: 40.0),
+                margin: EdgeInsets.symmetric(vertical: 15.0),
                 child: FlatButton(
                   onPressed: () {
                     print('Specialty Pizzas has been clicked');
@@ -257,7 +257,7 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0)),
                 width: 350.0,
                 height: 415.0,
-                margin: EdgeInsets.symmetric(vertical: 40.0),
+                margin: EdgeInsets.symmetric(vertical: 15.0),
                 child: FlatButton(
                   onPressed: () {
                     print('Specialty Pizzas has been clicked');
@@ -364,7 +364,7 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.0)),
                 width: 350.0,
                 height: 415.0,
-                margin: EdgeInsets.symmetric(vertical: 40.0),
+                margin: EdgeInsets.symmetric(vertical: 15.0),
                 child: FlatButton(
                   onPressed: () {
                     print('Specialty Pizzas has been clicked');
@@ -471,7 +471,7 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.0)),
                 width: 350.0,
                 height: 415.0,
-                margin: EdgeInsets.symmetric(vertical: 40.0),
+                margin: EdgeInsets.symmetric(vertical: 15.0),
                 child: FlatButton(
                   onPressed: () {
                     print('Specialty Pizzas has been clicked');

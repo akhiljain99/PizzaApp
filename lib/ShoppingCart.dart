@@ -32,6 +32,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
   double _specialtyPizzaPrice = 0;
   bool _specialtyRemove = false;
   bool _createYourOwnRemove = false;
+  bool _discount = false;
   bool remove = false;
   bool onChange = false;
   double _tax = 0;
@@ -59,7 +60,15 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 },
               )
             ]),
-        body: Column(
+        body: Container(
+            decoration: new BoxDecoration(
+              image: new DecorationImage(
+                image: new AssetImage('Assets/appBackground.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            constraints: BoxConstraints.expand(),
+          child: Column(
           children: <Widget>[
             Expanded(
                 child: ListView.builder(
@@ -87,10 +96,9 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                     return Container(
                                      // color: Colors.blue,
                                         decoration: BoxDecoration(
-                                            border:
-                                            Border.all(color: Colors.black),
-                                            borderRadius:
-                                            BorderRadius.circular(5.0)),
+                                            color: Colors.white,
+                                            border: Border.all(color: Colors.black),
+                                            borderRadius: BorderRadius.circular(5.0)),
                                         width: 360.0,
                                         padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                                         //height: 450.0,
@@ -273,7 +281,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                       child: FlatButton( // FlatButton for the REMOVE BUTTON
                                                           color: Color.fromARGB(255, 122, 0, 0),
                                                           onPressed: () {
-                                                            _price = _price - _shoppingCart[index].price;  // what does this line do???
+                                                            _price = _price - _shoppingCart[index].price;
                                                             //get cart items
                                                             List<ShoppingCartItem> cart =
                                                             ShoppingCartData.of(context)
@@ -333,6 +341,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                     return Container(
                                       //color: Colors.blue,
                                         decoration: BoxDecoration(
+                                            color: Colors.white,
                                             border:
                                             Border.all(color: Colors.black),
                                             borderRadius:
@@ -342,7 +351,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                         //height: 450.0,
                                         margin: EdgeInsets.symmetric(
                                             vertical: 10.0),
-                                        child: 
+                                        child:
                                           Column(
                                             children: [
                                               Row(
@@ -380,9 +389,9 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                       )
                                                     ],
                                                   ),
-                                                  Column(   
+                                                  Column(
                                                     children: [
-                                                      Row(   
+                                                      Row(
                                                         //mainAxisAlignment: MainAxisAlignment.end,
                                                         children: [
                                                           Column(
@@ -401,7 +410,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                   )
                                                 ],
                                               ),
-                                              Row(  
+                                              Row(
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   Column(
@@ -427,83 +436,83 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                               items: [
                                                                 DropdownMenuItem(
                                                                   child: Text("1"),
-                                                                  value: 1, 
+                                                                  value: 1,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("2"),
-                                                                  value: 2, 
+                                                                  value: 2,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("3"),
-                                                                  value: 3, 
+                                                                  value: 3,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("4"),
-                                                                  value: 4, 
+                                                                  value: 4,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("5"),
-                                                                  value: 5, 
+                                                                  value: 5,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("6"),
-                                                                  value: 6, 
+                                                                  value: 6,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("7"),
-                                                                  value: 7, 
+                                                                  value: 7,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("8"),
-                                                                  value: 8, 
+                                                                  value: 8,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("9"),
-                                                                  value: 9, 
+                                                                  value: 9,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("10"),
-                                                                  value: 10, 
+                                                                  value: 10,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("11"),
-                                                                  value: 11, 
+                                                                  value: 11,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("12"),
-                                                                  value: 12, 
+                                                                  value: 12,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("13"),
-                                                                  value: 13, 
+                                                                  value: 13,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("14"),
-                                                                  value: 14, 
+                                                                  value: 14,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("15"),
-                                                                  value: 15, 
+                                                                  value: 15,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("16"),
-                                                                  value: 16, 
+                                                                  value: 16,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("17"),
-                                                                  value: 17, 
+                                                                  value: 17,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("18"),
-                                                                  value: 18, 
+                                                                  value: 18,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("19"),
-                                                                  value: 19, 
+                                                                  value: 19,
                                                                 ),
                                                                 DropdownMenuItem(
                                                                   child: Text("20"),
-                                                                  value: 20, 
+                                                                  value: 20,
                                                                 ),
                                                               ],
                                                               onChanged: (value) {
@@ -516,7 +525,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                           ),
                                                         ],
                                                       ),
-                                                      
+
                                                     ],
                                                   ),
                                                   Column(
@@ -525,7 +534,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                         child: FlatButton( // FlatButton for the REMOVE BUTTON
                                                           color: Color.fromARGB(255, 122, 0, 0),
                                                           onPressed: () {
-                                                            _price = _price - _shoppingCart[index].price;  // what does this line do???
+                                                            _price = _price - _shoppingCart[index].price;
                                                             //get cart items
                                                             List<ShoppingCartItem> cart =
                                                             ShoppingCartData.of(context)
@@ -553,12 +562,12 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                           ),
                                                         ),
                                                       )
-                                                      
+
                                                     ],
                                                   )
                                                 ],
                                               ),
-                                              Column( 
+                                              Column(
                                                 children: [
                                                   ExpansionTile(
                                                     title: Text('Show Details'),
@@ -621,6 +630,10 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           }
                           _price += item.price * item.quantity;
                         }
+                        if (_price >= 50){
+                          _price *= 0.85;
+                          _discount = true;
+                        }
                         // calculate the tax and the total. 
                         _tax = _price * 0.07;
                         _total = _price + _tax;
@@ -629,7 +642,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                         var _totalStr = _total.toStringAsFixed(2);
                         Navigator.pushNamed(
                             context, '/Checkout',
-                            arguments: {'price': _number, 'tax': _taxStr, 'total': _totalStr},
+                            arguments: {'price': _number, 'tax': _taxStr, 'total': _totalStr, 'discount': _discount},
                           );
                       },
                       child: Text(
@@ -643,7 +656,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 ],
               )
           ],
-        )
+        ))
     );
   }
 }

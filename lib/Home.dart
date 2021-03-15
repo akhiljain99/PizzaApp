@@ -35,6 +35,13 @@ class Home extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
+              Text(
+                '\nBuy \$50 of Pizza and get 15% off!',
+                  style: TextStyle(
+                    fontSize: 25.5,
+                    fontWeight: FontWeight.bold,
+                  )
+              ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 40.0),
                 child: FlatButton(
