@@ -28,6 +28,7 @@ class ShoppingCart extends StatefulWidget {
 
 class _ShoppingCartState extends State<ShoppingCart> {
   double _price = 0;
+  double _beforeDiscount = 0;
   double _createYourOwnPrice = 0;
   double _specialtyPizzaPrice = 0;
   bool _specialtyRemove = false;
@@ -43,6 +44,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
   int quantity = 1;
   int createYourOwnQuantity = 1;
   String _strdiscount = 'false';
+  String _strdiscountPrice = 'false';
   String _quantity;
   @override
   Widget build(BuildContext context) {
@@ -631,9 +633,11 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           }
                           _price += item.price * item.quantity;
                         }
+                        _beforeDiscount = _price;
                         if (_price >= 50){
                           _price *= 0.85;
                           _strdiscount = 'true';
+                          _strdiscountPrice = _beforeDiscount.toStringAsFixed(2);
                         }
                         // calculate the tax and the total. 
                         _tax = _price * 0.07;
@@ -643,7 +647,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                         var _totalStr = _total.toStringAsFixed(2);
                         Navigator.pushNamed(
                             context, '/Checkout',
-                            arguments: {'price': _number, 'tax': _taxStr, 'total': _totalStr, 'discount': _strdiscount},
+                            arguments: {'price': _number, 'tax': _taxStr, 'total': _totalStr, 'discount': _strdiscount, 'beforeDiscount': _strdiscountPrice},
                           );
                       },
                       child: Text(

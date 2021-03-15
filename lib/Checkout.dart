@@ -313,9 +313,19 @@ class _Checkout extends State<Checkout> {
               Column(
                 children: [
                   data['discount'] == 'true'
-                      ? Text('Discount Added!',
+                      ? Column(
+                      children: <Widget>[
+                        Text(
+                          'Discount Added!',
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold)
+                        ),
+                        Text(
+                            'Before Discount: \$${data['beforeDiscount']}',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)
+                        ),
+                      ]
                   )
                       : Text(" ")
                 ],

@@ -476,7 +476,7 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                   onPressed: () {
                     print('Specialty Pizzas has been clicked');
                     Navigator.pushNamed(context, '/SpecialtyPizzaPurchase', arguments: {
-                      'pizzaType': "Masala",
+                      'pizzaType': "Chicken Tikka Masala",
                     });
                   },
                   child: Column(

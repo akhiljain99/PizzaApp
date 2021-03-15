@@ -50,7 +50,7 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
       case 'Hawaiian': pizzaName = data.values.first;
                         fileName = "Assets/HawaiianPizza.jpg";
       break;
-      case 'Masala': pizzaName = data.values.first;
+      case 'Chicken Tikka Masala': pizzaName = data.values.first;
                       fileName = "Assets/MasalaPizza.jpg";
       break;
     }
