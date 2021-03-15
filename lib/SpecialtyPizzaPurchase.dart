@@ -44,6 +44,15 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
       case 'BBQGoat': pizzaName = data.values.first;
                       fileName = "Assets/BarbecueGoat.jpg";
       break;
+      case 'Sicilian': pizzaName = data.values.first;
+                      fileName = "Assets/SicilianPizza.jpg";
+      break;
+      case 'Hawaiian': pizzaName = data.values.first;
+                        fileName = "Assets/HawaiianPizza.jpg";
+      break;
+      case 'Masala': pizzaName = data.values.first;
+                      fileName = "Assets/MasalaPizza.jpg";
+      break;
     }
     return Scaffold(
       appBar: AppBar(

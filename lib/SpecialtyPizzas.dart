@@ -326,7 +326,7 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                             height: 100,
                             width: 300,
                             child: Text(
-                              'Our original crust topped with Kansas City Barbecue sauce, goat meat, goat cheese, and onions.', textAlign: TextAlign.center,
+                              'Our fluffy crust topped with tomato sauce, cheese, onions, anchovies, and herbs.', textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Color.fromRGBO(255, 255, 255, 1),
                                 fontSize: 16,
@@ -346,6 +346,220 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                                       color: Colors.black),
                                   Shadow(
                                       // topLeft
+                                      offset: Offset(-1.25, 1.25),
+                                      color: Colors.black),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(8.0)),
+                width: 350.0,
+                height: 415.0,
+                margin: EdgeInsets.symmetric(vertical: 40.0),
+                child: FlatButton(
+                  onPressed: () {
+                    print('Specialty Pizzas has been clicked');
+                    Navigator.pushNamed(context, '/SpecialtyPizzaPurchase', arguments: {
+                      'pizzaType': "Hawaiian",
+                    });
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 10.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'Assets/HawaiianPizza.jpg',
+                                height: 250.0,
+                                width: 300.0,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 40,
+                            width: 300,
+                            child: Text(
+                              "Hawaiian Pizza", textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                    // bottomLeft
+                                      offset: Offset(-1.5, -1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // bottomRight
+                                      offset: Offset(1.5, -1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // topRight
+                                      offset: Offset(1.5, 1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // topLeft
+                                      offset: Offset(-1.5, 1.5),
+                                      color: Colors.black),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 100,
+                            width: 300,
+                            child: Text(
+                              'Our original crust topped with tomato sauce, canadian bacon, pineapple, and cheese mix.', textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                    // bottomLeft
+                                      offset: Offset(-1.25, -1.25),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // bottomRight
+                                      offset: Offset(1.25, -1.25),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // topRight
+                                      offset: Offset(1.25, 1.25),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // topLeft
+                                      offset: Offset(-1.25, 1.25),
+                                      color: Colors.black),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(8.0)),
+                width: 350.0,
+                height: 415.0,
+                margin: EdgeInsets.symmetric(vertical: 40.0),
+                child: FlatButton(
+                  onPressed: () {
+                    print('Specialty Pizzas has been clicked');
+                    Navigator.pushNamed(context, '/SpecialtyPizzaPurchase', arguments: {
+                      'pizzaType': "Masala",
+                    });
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 10.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'Assets/MasalaPizza.jpg',
+                                height: 250.0,
+                                width: 300.0,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 40,
+                            width: 300,
+                            child: Text(
+                              "Chicken Tikka Masala Pizza", textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                    // bottomLeft
+                                      offset: Offset(-1.5, -1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // bottomRight
+                                      offset: Offset(1.5, -1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // topRight
+                                      offset: Offset(1.5, 1.5),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // topLeft
+                                      offset: Offset(-1.5, 1.5),
+                                      color: Colors.black),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 100,
+                            width: 300,
+                            child: Text(
+                              'Our original crust topped with spicy curry, chicken, onions, mozzarella cheese, and cilantro.', textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                    // bottomLeft
+                                      offset: Offset(-1.25, -1.25),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // bottomRight
+                                      offset: Offset(1.25, -1.25),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // topRight
+                                      offset: Offset(1.25, 1.25),
+                                      color: Colors.black),
+                                  Shadow(
+                                    // topLeft
                                       offset: Offset(-1.25, 1.25),
                                       color: Colors.black),
                                 ],
