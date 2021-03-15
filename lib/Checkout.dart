@@ -310,13 +310,12 @@ class _Checkout extends State<Checkout> {
                   )
                 ],
               ),
-              Row( // this row is for the "Cart is Empty" text. TODO: STYLE IT SO IT LOOKS GOOD
+              Column(
                 children: [
-                  {data['discount']} == true
-                      ? Padding(padding: EdgeInsets.fromLTRB(108, 0, 0, 310),
-                      child: Text('Discount Added!',
+                  data['discount'] == 'true'
+                      ? Text('Discount Added!',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold))
+                              fontSize: 25, fontWeight: FontWeight.bold)
                   )
                       : Text(" ")
                 ],
