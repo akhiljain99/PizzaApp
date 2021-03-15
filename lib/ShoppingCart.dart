@@ -68,7 +68,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                     itemCount: _shoppingCart.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        padding: EdgeInsets.fromLTRB(14,0,0,0),
+                        padding: EdgeInsets.fromLTRB(10,0,0,0),
                         alignment: Alignment.topCenter,
                         //color: Colors.amber,
                         child: Column(
@@ -81,6 +81,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                   _number = _shoppingCart[index].price.toStringAsFixed(2);
                                   if(_shoppingCart[index].pizzaType == PizzaType.createyourown) _createYourOwnPrice = _shoppingCart[index].price;
                                   else _specialtyPizzaPrice = _shoppingCart[index].price;
+                                  var imageURL = _shoppingCart[index].imageName;
                                   if (_shoppingCart[index].pizzaType ==
                                       PizzaType.createyourown) {
                                     return Container(
@@ -102,22 +103,52 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                               children: [
                                                 Column(
                                                   children: [
-                                                     Text(
-                                                      'Create Your Own',
-                                                      style: TextStyle(
-                                                          fontSize: 18,
-                                                          fontWeight: FontWeight.bold),
-                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Container(
+                                                          child: Padding(
+                                                            padding: EdgeInsets.fromLTRB(5, 10, 0, 0),
+                                                              child: ClipRRect(
+                                                                borderRadius: BorderRadius.circular(5.0),
+                                                                child: Image.asset(
+                                                                  '$imageURL',
+                                                                  height: 75.0,
+                                                                  width: 75.0,
+                                                                  fit: BoxFit.fill,
+                                                                )
+                                                              )
+                                                            ),
+                                                        ),
+                                                        Column(  
+                                                          children: [
+                                                            Text(
+                                                              '  Create Your Own',
+                                                              style: TextStyle(
+                                                                  fontSize: 18,
+                                                                  fontWeight: FontWeight.bold),
+                                                            ),
+                                                          ],
+                                                        )
+                                                      ],
+                                                    )
                                                   ],
                                                 ),
                                                 Column(
                                                   children: [
-                                                    Padding(
-                                                      padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
-                                                      child: Text(
-                                                            '\$${_number}',
-                                                            style: TextStyle(fontSize: 18, ),
-                                                          ),
+                                                    Row(  
+                                                      children: [ 
+                                                        Column(  
+                                                          children: [
+                                                            Padding(
+                                                              padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                                              child: Text(
+                                                                    '\$${_number}',
+                                                                    style: TextStyle(fontSize: 18, ),
+                                                                  ),
+                                                            )
+                                                          ],
+                                                        )
+                                                      ],
                                                     )
                                                   ],
                                                 )
@@ -315,20 +346,37 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                           Column(
                                             children: [
                                               Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   Column(
-                                                    children: <Widget>[
-                                                      Container(
-                                                        child: ClipRRect(
-                                                          borderRadius: BorderRadius.circular(5.0),
-                                                          child: Image.asset(
-                                                            'Assets/SicilianPizza.jpg',
-                                                            height: 100.0,
-                                                            width: 100.0,
-                                                            fit: BoxFit.fill,
-                                                          )
-                                                        )
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          Container(
+                                                            child: Padding(
+                                                              padding: EdgeInsets.fromLTRB(5, 10, 0, 0),
+                                                                child: ClipRRect(
+                                                                  borderRadius: BorderRadius.circular(5.0),
+                                                                  child: Image.asset(
+                                                                    '$imageURL',
+                                                                    height: 75.0,
+                                                                    width: 75.0,
+                                                                    fit: BoxFit.fill,
+                                                                  )
+                                                                )
+                                                              ),
+                                                          ),
+                                                          Column(
+                                                            children: [
+                                                              Text(
+                                                                '  ${_shoppingCart[index].specialtyType}',
+                                                                style: TextStyle(
+                                                                    fontSize: 18,
+                                                                    fontWeight: FontWeight.bold),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
                                                       )
                                                     ],
                                                   ),
@@ -337,16 +385,6 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                       Row(   
                                                         //mainAxisAlignment: MainAxisAlignment.end,
                                                         children: [
-                                                          Column(
-                                                            children: [
-                                                              Text(
-                                                                '${_shoppingCart[index].specialtyType}',
-                                                                style: TextStyle(
-                                                                    fontSize: 18,
-                                                                    fontWeight: FontWeight.bold),
-                                                              ),
-                                                            ],
-                                                          ),
                                                           Column(
                                                             children: [
                                                               Padding(padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
@@ -361,7 +399,6 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                       )
                                                     ],
                                                   )
-                                                  
                                                 ],
                                               ),
                                               Row(  
@@ -534,12 +571,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                   ),
                                                 ],
                                               ),
-                                              // Divider(
-                                              //   height: 20,
-                                              //   thickness: 5,
-                                              //   indent: 20,
-                                              //   endIndent: 20,
-                                              // )   
+                                              //
                                            ]
                                           )
                                       );
@@ -556,13 +588,12 @@ class _ShoppingCartState extends State<ShoppingCart> {
               Row( // this row is for the "Cart is Empty" text. TODO: STYLE IT SO IT LOOKS GOOD
                 children: [
                   _shoppingCart.length <= 0
-                      ? Center(
-                      child: Text('Cart is Empty',
+                      ? Padding(padding: EdgeInsets.fromLTRB(108, 0, 0, 310),
+                        child: Text('Cart is Empty',
                           style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.bold)))
-                      : Center(
-                    child: Text(" "),
-                  ),
+                              fontSize: 30, fontWeight: FontWeight.bold))
+                      )
+                      : Text(" ")
                 ],
               ),
               Row(    // this row is for the checkout button. Igonre this for now
@@ -607,7 +638,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                         textAlign: TextAlign.center,
                       ))
                       : Center(
-                    child: Text(" "),
+                      child: Text(" "),
                   )
                 ],
               )

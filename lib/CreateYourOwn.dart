@@ -470,6 +470,7 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                                     createYourOwn.createYourOwnDetails = _toppingList;
                                     createYourOwn.price = _price;
                                     createYourOwn.size = _sizeStr;
+                                    createYourOwn.imageName = "Assets/BuildYourOwn.jpg";
                                     ShoppingCartData.of(context)
                                         .addCartItem(createYourOwn);
                                     Navigator.pushNamed(

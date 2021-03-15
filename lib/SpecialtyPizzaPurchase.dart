@@ -38,7 +38,7 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
 
     switch(data.values.first)
     {
-      case 'Supreme': pizzaName = data.values.first + " Pizza";
+      case 'Supreme': pizzaName = data.values.first;
                       fileName = "Assets/SupremePizza.jpg";
       break;
       case 'BBQGoat': pizzaName = data.values.first;
@@ -203,6 +203,9 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                             ShoppingCartItem item = new ShoppingCartItem();
                             item.pizzaType = PizzaType.specialty;
                             item.specialtyType = pizzaName;
+                            if(pizzaName == "Supreme") item.imageName = "Assets/SupremePizza.jpg";
+                            else if(pizzaName == "BBQGoat") item.imageName = "Assets/BarbecueGoat.jpg";
+                            
                             if(_size == 1) {
                               item.size = 'Small';
                               item.price = 14.00;

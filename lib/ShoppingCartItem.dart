@@ -10,4 +10,5 @@ class ShoppingCartItem {
   String crust;
   int quantity = 1;
   bool remove = false;
+  String imageName;
 }
