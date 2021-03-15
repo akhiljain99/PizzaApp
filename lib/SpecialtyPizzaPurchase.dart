@@ -214,6 +214,9 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                             item.specialtyType = pizzaName;
                             if(pizzaName == "Supreme") item.imageName = "Assets/SupremePizza.jpg";
                             else if(pizzaName == "BBQGoat") item.imageName = "Assets/BarbecueGoat.jpg";
+                            else if(pizzaName == "Sicilian") item.imageName = "Assets/SicilianPizza.jpg";
+                            else if(pizzaName == "Hawaiian") item.imageName = "Assets/HawaiianPizza.jpg";
+                            else if(pizzaName == "Chicken Tikka Masala") item.imageName = "Assets/MasalaPizza.jpg";
                             
                             if(_size == 1) {
                               item.size = 'Small';
