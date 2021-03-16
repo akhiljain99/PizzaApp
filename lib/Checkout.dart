@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pizza_ordering_app/ShoppingCartData.dart';
+import 'package:pizza_ordering_app/ShoppingCartItem.dart';
 
 
 class Checkout extends StatefulWidget {
@@ -22,10 +24,11 @@ class _Checkout extends State<Checkout> {
   bool _cvv = false;
   bool _zip = false;
   Pay _payType = Pay.cash;
+
   @override
   Widget build(BuildContext context) {
     data = ModalRoute.of(context).settings.arguments;
-
+    var _shoppingCart = ShoppingCartData.of(context).getCart();
 
     return Scaffold(
       appBar: AppBar(
@@ -362,6 +365,18 @@ class _Checkout extends State<Checkout> {
                     if(_fName == true && _lName == true && _email == true && _phone == true){
                       if (_payType == Pay.credit){
                         if (_cardName == true && _cardNum == true && _expYear == true && _cvv == true && _zip == true){
+                          for (int i = 0; i <= _shoppingCart.length; i++){
+                            //get cart items
+                            List<ShoppingCartItem> cart =
+                            ShoppingCartData.of(context)
+                                .getCart();
+                            //remove item from cart
+                            cart.removeAt(i);
+                            //update cart items
+                            ShoppingCartData.of(context)
+                                .updateCart(cart);
+                            print(_shoppingCart);
+                          }
                           Navigator.pushNamed(context, '/Success');
                           print("success has been clicked");
                         }
@@ -373,6 +388,18 @@ class _Checkout extends State<Checkout> {
                             textAlign: TextAlign.right,
                           );
                         }
+                      }
+                      for (int i = 0; i <= _shoppingCart.length; i++){
+                        //get cart items
+                        List<ShoppingCartItem> cart =
+                        ShoppingCartData.of(context)
+                            .getCart();
+                        //remove item from cart
+                        cart.removeAt(i);
+                        //update cart items
+                        ShoppingCartData.of(context)
+                            .updateCart(cart);
+                        print(_shoppingCart);
                       }
                       Navigator.pushNamed(context, '/Success');
                       print("success has been clicked");
