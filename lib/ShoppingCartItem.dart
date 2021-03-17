@@ -1,3 +1,15 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: ShoppingCartItem.dart                                        ***
+///************************************************************************
+///**DESCRIPTION: Saves the data of an instance.                        ***
+///************************************************************************/
+
 enum PizzaType { specialty, createyourown }
 enum SpecialtyType {supreme, bbqGoat}
 

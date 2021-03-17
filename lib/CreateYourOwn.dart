@@ -1,6 +1,19 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: CreateYourOwn.dart                                           ***
+///************************************************************************
+///**DESCRIPTION: Allows the user to create their own pizza.  They get  ***
+///**to decide the size, crust, toppings and amount of cheese. The price***
+///**is calculated and the information is saved in the shopping cart.   ***
+///************************************************************************/
+///
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:pizza_ordering_app/ShoppingCart.dart';
 import 'package:pizza_ordering_app/ShoppingCartData.dart';
 import 'package:pizza_ordering_app/ShoppingCartItem.dart';
 
@@ -12,6 +25,7 @@ class CreateYourOwn extends StatefulWidget {
 enum Cheese { normal, extra, extreme }
 
 class _CreateYourOwnState extends State<CreateYourOwn> {
+  ///Declare variables
   int _size = 2;
   int _crust = 1;
   double _price = 0;
@@ -54,74 +68,73 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
             constraints: BoxConstraints.expand(),
             child: SingleChildScrollView(
                 child: Column(
-              children: <Widget>[
-                Container(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Container(
-                            padding: EdgeInsets.symmetric(vertical: 10),
-                            child: Text(
-                              'Choose Your Crust',
-                              style: TextStyle(
+                  children: <Widget>[
+                    Container(
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                        color: Colors.white,
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(vertical: 10),
+                              child: Text(
+                                'Choose Your Crust',
+                                style: TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(255, 122, 0, 0)),
-                              textAlign: TextAlign.center,
-                            )),
-                        ////////////////////////////////////////
-                        ///This row is for the size dropdown button
-                        ////////////////////////////////////////
-                        Row(children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(60, 10, 0, 0),
-                            child: Row(children: [
+                                textAlign: TextAlign.center,
+                              )
+                            ),
+                            ///This row is for the size dropdown button
+                            Row(children: [
                               Container(
-                                child: Text(
-                                  'Size',
-                                  style: TextStyle(fontSize: 30.0),
-                                  textAlign: TextAlign.right,
-                                ),
-                              ),
-                              Container(
-                                  width: 200,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.black)),
-                                  margin: EdgeInsets.fromLTRB(30, 5, 0, 5),
-                                  padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
-                                  child: DropdownButton(
-                                      isExpanded: true,
-                                      style: TextStyle(
-                                        fontSize: 25.0,
-                                        color: Colors.black,
+                                margin: EdgeInsets.fromLTRB(60, 10, 0, 0),
+                                child: Row(children: [
+                                  Container(
+                                    child: Text(
+                                      'Size',
+                                      style: TextStyle(fontSize: 30.0),
+                                      textAlign: TextAlign.right,
+                                    ),
+                                  ),
+                                  Container(
+                                      width: 200,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.black)
                                       ),
-                                      value: _size,
-                                      items: [
-                                        DropdownMenuItem(
-                                          child: Text("Small"),
-                                          value: 1,
+                                      margin: EdgeInsets.fromLTRB(30, 5, 0, 5),
+                                      padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
+                                      child: DropdownButton(
+                                        isExpanded: true,
+                                        style: TextStyle(
+                                          fontSize: 25.0,
+                                          color: Colors.black,
                                         ),
-                                        DropdownMenuItem(
-                                          child: Text("Medium"),
-                                          value: 2,
-                                        ),
-                                        DropdownMenuItem(
-                                          child: Text("Large"),
-                                          value: 3,
-                                        ),
-                                      ],
-                                      onChanged: (value) {
-                                        setState(() {
-                                          _size = value;
-                                        });
-                                      })),
+                                        value: _size,
+                                        items: [
+                                          DropdownMenuItem(
+                                            child: Text("Small"),
+                                            value: 1,
+                                          ),
+                                          DropdownMenuItem(
+                                            child: Text("Medium"),
+                                            value: 2,
+                                          ),
+                                          DropdownMenuItem(
+                                            child: Text("Large"),
+                                            value: 3,
+                                          ),
+                                        ],
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _size = value;
+                                          });
+                                        })
+                                  ),
+                                ]),
+                              ),
                             ]),
-                          ),
-                        ]),
-                        /////////////////////////////////////////////
                         ///This row is for the crust dropdown button
-                        /////////////////////////////////////////////
                         Row(children: [
                           Container(
                             margin: EdgeInsets.fromLTRB(60, 10, 0, 0),
@@ -136,7 +149,8 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                               Container(
                                   width: 200,
                                   decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.black)),
+                                      border: Border.all(color: Colors.black)
+                                  ),
                                   margin: EdgeInsets.fromLTRB(15, 5, 0, 5),
                                   padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                                   child: DropdownButton(
@@ -172,10 +186,13 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                                         setState(() {
                                           _crust = value;
                                         });
-                                      })),
+                                      }
+                                  )
+                              ),
                             ]),
                           ),
                         ]),
+                        ///Allows users to choose their toppings
                         Column(
                           children: [
                             Container(
@@ -187,7 +204,8 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                                       fontWeight: FontWeight.bold,
                                       color: Color.fromARGB(255, 122, 0, 0)),
                                   textAlign: TextAlign.center,
-                                )),
+                                )
+                            ),
                           ],
                         ),
                         Row(children: [
@@ -200,7 +218,8 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                                   setState(() {
                                     _pepperoni = value;
                                   });
-                                }),
+                                }
+                             ),
                           ),
                           Container(
                             margin: EdgeInsets.fromLTRB(5, 10, 0, 0),
@@ -329,6 +348,7 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                                 )),
                           ],
                         ),
+                        ///Allows users to choose the amount of cheese they want
                         Row(children: [
                           Container(
                             margin: EdgeInsets.fromLTRB(90, 5, 0, 5),
@@ -407,6 +427,7 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                             ]),
                           ),
                         ]),
+                        ///Routes user to shopping cart when button is pressed
                         Row(children: [
                           Center(
                             child: Container(
@@ -416,9 +437,9 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                                   padding: EdgeInsets.all(15),
                                   color: Color.fromARGB(255, 122, 0, 0),
                                   onPressed: () {
-                                    //TODO: figure out how to route
-                                    //all data to the shopping cart
+                                    ///all data saved to the shopping cart
 
+                                    ///Determines the price of the pizza
                                     if (_size == 1){
                                       _price += 10.00;
                                       _sizeStr = "Small";
@@ -492,7 +513,9 @@ class _CreateYourOwnState extends State<CreateYourOwn> {
                       ],
                     ))
               ],
-            ))));
+            ))
+        )
+    );
   }
 }
 

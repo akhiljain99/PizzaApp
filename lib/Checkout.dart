@@ -1,3 +1,20 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: Checkout.dart                                                ***
+///************************************************************************
+///**DESCRIPTION: Requires users to enter their contact information and ***
+///**if they are paying witch cash or credit.  If they pay with credit, ***
+///**they will be required to fill out more information.  They will be  ***
+///**to view the subtotal, tax, and total along with if the discount    ***
+///**added.  Once they click "Checkout" the cart will be erased and they***
+///**will be routed to the success page.                                ***
+///************************************************************************/
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,6 +30,7 @@ class Checkout extends StatefulWidget {
 enum Pay { cash, credit }
 
 class _Checkout extends State<Checkout> {
+  ///Declare Variables
   Map data = {};
   bool _fName = false;
   bool _lName = false;
@@ -27,6 +45,7 @@ class _Checkout extends State<Checkout> {
 
   @override
   Widget build(BuildContext context) {
+    ///Allow the passed in arguments to be accessed
     data = ModalRoute.of(context).settings.arguments;
     var _shoppingCart = ShoppingCartData.of(context).getCart();
 
@@ -54,6 +73,7 @@ class _Checkout extends State<Checkout> {
         ]
       ),
       body: SingleChildScrollView(
+        ///Require the user to enter contact information
           child: Column(
             children: <Widget> [
               Center(
@@ -130,7 +150,7 @@ class _Checkout extends State<Checkout> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Phone Number',
-                    hintText: '(xxx) xxx-xxxx)',
+                    hintText: '(xxx) xxx-xxxx',
                   ),
                     keyboardType: TextInputType.number,
                     maxLength: 10,
@@ -156,6 +176,7 @@ class _Checkout extends State<Checkout> {
                       )
                   )
               ),
+              ///Allow user to pay with cash or credit
               Row(children: [
                 Container(
                   margin: EdgeInsets.fromLTRB(90, 5, 0, 5),
@@ -208,6 +229,7 @@ class _Checkout extends State<Checkout> {
                   ]),
                 ),
               ]),
+              ///If user selects credit, ask for more information
               Row(
                 children: <Widget>[
                   _payType == Pay.credit
@@ -313,6 +335,7 @@ class _Checkout extends State<Checkout> {
                   )
                 ],
               ),
+              ///Displays the price
               Column(
                 children: [
                   data['discount'] == 'true'
@@ -358,6 +381,7 @@ class _Checkout extends State<Checkout> {
                   ),
                 ],
               ),
+              ///Makes sure the user fills out all boxes before checking out
               FlatButton(
                 padding: EdgeInsets.all(15),
                   color: Color.fromARGB(255, 122, 0, 0),

@@ -1,6 +1,20 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: Home.dart                                                    ***
+///************************************************************************
+///**DESCRIPTION: The home page styling and format are displayed to the ***
+///**user.  The user will be able to navigate to the shopping cart or   ***
+///**decide if they would like to order a specialty pizza or create     ***
+///**their own.  They will be routed to the according pages.            ***
+///************************************************************************/
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:pizza_ordering_app/CreateYourOwn.dart';
 import 'package:pizza_ordering_app/ShoppingCartItem.dart';
 
 class Home extends StatelessWidget {
@@ -42,6 +56,7 @@ class Home extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   )
               ),
+              ///Bring the user to the Specialty Pizza page when clicked
               Container(
                 margin: EdgeInsets.symmetric(vertical: 40.0),
                 child: FlatButton(
@@ -97,6 +112,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+              ///Bring the user to the Create Your Own page when clicked
               Container(
                 child: FlatButton(
                   onPressed: () {

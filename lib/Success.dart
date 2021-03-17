@@ -1,3 +1,17 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: Success.dart                                                 ***
+///************************************************************************
+///**DESCRIPTION: Allows the user to see that their order is complete.  ***
+///**They will routed to the home page when they click the "Return Home"***
+///***button.                                                           ***
+///************************************************************************/
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -35,13 +49,24 @@ class _SuccessState extends State<Success> {
           ),
           Center(
             child: Text(
-              'Your order was successfully submitted!\n\n',
+              'Your order was successfully submitted!',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
+          Center(
+            child: Text(
+              'You will be emailed when your order is complete\n\n',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          ///Routes user back to the home page
           FlatButton(
             padding: EdgeInsets.all(15),
             color: Color.fromARGB(255, 122, 0, 0),

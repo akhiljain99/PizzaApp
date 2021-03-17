@@ -1,9 +1,19 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: SpecialtyPizzas.dart                                         ***
+///************************************************************************
+///**DESCRIPTION: Displays the current specialty pizzas that are being  ***
+///**offered along with a breif description.  The user will be routing  ***
+///**to the SpecialtyPizzaPurchase to view the pizza they clicked on.   ***
+///************************************************************************/
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:pizza_ordering_app/CreateYourOwn.dart';
-import 'package:pizza_ordering_app/ShoppingCartData.dart';
-import 'package:pizza_ordering_app/ShoppingCartItem.dart';
-import 'package:pizza_ordering_app/SpecialtyPizzaPurchase.dart';
 
 class SpecialtyPizzasMenu extends StatelessWidget {
   @override
@@ -24,7 +34,6 @@ class SpecialtyPizzasMenu extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.shopping_cart_rounded, color: Colors.white),
               onPressed: () {
-                //do something
                 print("shopping cart has been clicked");
                 Navigator.pushNamed(context, '/ShoppingCart');
               },
@@ -37,6 +46,8 @@ class SpecialtyPizzasMenu extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
+              ///Displays the Supreme Pizza
+              ///Routes to SpecialtyPizzaPurchase.dart when clicked
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
@@ -144,6 +155,8 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                   ),
                 ),
               ),
+              ///Displays BBQ Goat Pizza
+              ///Routes to SpecialtyPizzaPurchase.dart when clicked
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
@@ -251,6 +264,8 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                   ),
                 ),
               ),
+              ///Displays Sicilian Pizza
+              ///Routes to SpecialtyPizzaPurchase.dart when clicked
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
@@ -358,6 +373,8 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                   ),
                 ),
               ),
+              ///Displays Hawaiian Pizza
+              ///Routes to SpecialtyPizzaPurchase.dart when clicked
               Container(
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
@@ -465,6 +482,8 @@ class SpecialtyPizzasMenu extends StatelessWidget {
                   ),
                 ),
               ),
+              ///Displays Chicken Tikka Masala Pizza
+              ///Routes to SpecialtyPizzaPurchase.dart when clicked
               Container(
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),

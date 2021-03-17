@@ -1,3 +1,14 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: main.dart                                                    ***
+///************************************************************************
+///**DESCRIPTION: Allows users to be routed to the correct page.        ***
+///************************************************************************/
 import 'package:flutter/material.dart';
 import 'package:pizza_ordering_app/CreateYourOwn.dart';
 import 'package:pizza_ordering_app/ShoppingCartData.dart';

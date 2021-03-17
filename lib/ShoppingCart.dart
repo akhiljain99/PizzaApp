@@ -1,25 +1,23 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: ShoppingCart.dart                                            ***
+///************************************************************************
+///**DESCRIPTION: Displays what the user has added to the cart.  The    ***
+///**total subtotal, tax, and total.  It will also determine if a       ***
+///**discount should be added and adjust the total accordingly.  Users  ***
+///**will be able to remove items and adjust the quantity of each pizza.***
+///************************************************************************/
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pizza_ordering_app/ShoppingCartData.dart';
 import 'package:pizza_ordering_app/ShoppingCartItem.dart';
-
-/*
-class ShoppingCart extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Perilous Pizza'),
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 122, 0, 0),
-      ),
-      body: Text('ShoppingCart'),
-    );
-  }
-}
-
-*/
 
 class ShoppingCart extends StatefulWidget {
   @override
@@ -27,6 +25,7 @@ class ShoppingCart extends StatefulWidget {
 }
 
 class _ShoppingCartState extends State<ShoppingCart> {
+  ///Declaring variables
   double _price = 0;
   double _beforeDiscount = 0;
   double _createYourOwnPrice = 0;
@@ -46,6 +45,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
   String _strdiscount = 'false';
   String _strdiscountPrice = 'false';
   String _quantity;
+
   @override
   Widget build(BuildContext context) {
     var _shoppingCart = ShoppingCartData.of(context).getCart();
@@ -87,15 +87,18 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
+                            ///Loops through the cart displaying the each item and adds up total price
                             Row(
                               children: <Widget>[
                                 (() {
                                   _number = _shoppingCart[index].price.toStringAsFixed(2);
-                                  if(_shoppingCart[index].pizzaType == PizzaType.createyourown) _createYourOwnPrice = _shoppingCart[index].price;
-                                  else _specialtyPizzaPrice = _shoppingCart[index].price;
+                                  if(_shoppingCart[index].pizzaType == PizzaType.createyourown)
+                                    _createYourOwnPrice = _shoppingCart[index].price;
+                                  else
+                                    _specialtyPizzaPrice = _shoppingCart[index].price;
                                   var imageURL = _shoppingCart[index].imageName;
-                                  if (_shoppingCart[index].pizzaType ==
-                                      PizzaType.createyourown) {
+                                  ///Displays Create Your Own Pizzas
+                                  if (_shoppingCart[index].pizzaType == PizzaType.createyourown) {
                                     return Container(
                                      // color: Colors.blue,
                                         decoration: BoxDecoration(
@@ -165,6 +168,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                 )
                                               ],
                                             ),
+                                            ///Allows users to adjust the quantity
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
@@ -278,6 +282,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                     )
                                                   ],
                                                 ),
+                                                ///Allows user to remove item and adjust price
                                                 Column(
                                                   children: [
                                                     Padding(padding: EdgeInsets.fromLTRB(0,0,5,0),
@@ -316,6 +321,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                 )
                                               ],
                                             ),
+                                            ///Allows user to view the item in detail
                                             Column(
                                               children: [
                                                 ExpansionTile(
@@ -340,7 +346,9 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                           ]
                                         )
                                       );
-                                  } else {
+                                  }
+                                  ///Displays Specialty Pizza
+                                  else {
                                     return Container(
                                       //color: Colors.blue,
                                         decoration: BoxDecoration(
@@ -395,7 +403,6 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                   Column(
                                                     children: [
                                                       Row(
-                                                        //mainAxisAlignment: MainAxisAlignment.end,
                                                         children: [
                                                           Column(
                                                             children: [
@@ -413,6 +420,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                   )
                                                 ],
                                               ),
+                                              ///Allows user to adjust the quantity
                                               Row(
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
@@ -531,6 +539,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
 
                                                     ],
                                                   ),
+                                                  ///Allows the user to remove the item and adjust price
                                                   Column(
                                                     children: [
                                                       Padding(padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
@@ -597,7 +606,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
                     }
                   )
                 ),
-              Row( // this row is for the "Cart is Empty" text. TODO: STYLE IT SO IT LOOKS GOOD
+              ///Displays when there is nothing in the cart
+              Row(
                 children: [
                   _shoppingCart.length <= 0
                       ? Padding(padding: EdgeInsets.fromLTRB(108, 0, 0, 310),
@@ -608,7 +618,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
                       : Text(" ")
                 ],
               ),
-              Row(    // this row is for the checkout button. Igonre this for now
+              ///Checkout button and passes the prices to the Checkout page
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _shoppingCart.length > 0
@@ -620,13 +631,13 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                   .getCart();
                         for(var item in cart)
                         {
-                          // if the user removes an item from the list, set price to 0, since the prize accumulates. 
-                          // set the boolean to false
+                          /// if the user removes an item from the list, set price to 0, since the prize accumulates.
+                          /// set the boolean to false
                           if(remove) {
                             _price = 0;
                             remove = false;
                           }
-                          // if the user decides to change the quantity of an item, set the price to 0 for re-calculation. 
+                          /// if the user decides to change the quantity of an item, set the price to 0 for re-calculation.
                           if(onChange){
                             _price = 0;
                             onChange = false;
@@ -639,12 +650,13 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           _strdiscount = 'true';
                           _strdiscountPrice = _beforeDiscount.toStringAsFixed(2);
                         }
-                        // calculate the tax and the total. 
+                        /// calculate the tax and the total.
                         _tax = _price * 0.07;
                         _total = _price + _tax;
                         var _number = _price.toStringAsFixed(2);
                         var _taxStr = _tax.toStringAsFixed(2);
                         var _totalStr = _total.toStringAsFixed(2);
+                        ///Routes to the Checkout page and passes prices
                         Navigator.pushNamed(
                             context, '/Checkout',
                             arguments: {'price': _number, 'tax': _taxStr, 'total': _totalStr, 'discount': _strdiscount, 'beforeDiscount': _strdiscountPrice},

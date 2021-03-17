@@ -1,22 +1,22 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: SpecialtyPizzaPurchase.dart                                  ***
+///************************************************************************
+///**DESCRIPTION: Allows the user to select the desired size of the     ***
+///**pizza they want.  The specialty pizza that was selected will be    ***
+///**displayed as well.  The user can add the pizza to the cart, which  ***
+///**direct them to the shopping cart.                                  ***
+///************************************************************************/
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pizza_ordering_app/ShoppingCartData.dart';
 import 'package:pizza_ordering_app/ShoppingCartItem.dart';
-
-// class SpecialtyPizzaPurchase extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Perilous Pizza'),
-//         centerTitle: true,
-//         backgroundColor: Color.fromARGB(255, 122, 0, 0),
-//       ),
-//       body: Text('Specialty Pizza Purchase'),
-//     );
-//   }
-// }
-
 
 class SpecialtyPizzaPurchase extends StatefulWidget {
   @override
@@ -24,18 +24,19 @@ class SpecialtyPizzaPurchase extends StatefulWidget {
 }
 
 class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
+  //Declare variables
   int _size = 2;
   String size = 'Medium';
   Map data = {};
   String pizzaName = '';
   String fileName = '';
   
-  
   @override
   Widget build(BuildContext context) {
-    
+    ///Allows use of passed in arguments
     data = ModalRoute.of(context).settings.arguments;
 
+    ///Determines which pizza to display
     switch(data.values.first)
     {
       case 'Supreme': pizzaName = data.values.first;
@@ -83,6 +84,7 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
+              ///Displays the pizza picture and name
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
@@ -147,6 +149,7 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                       ),
                   ],)
               ),
+              ///Allows user to decide which size they want
               Row(
                 children: [
                   Container(
@@ -199,6 +202,8 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                   )
                 ],
               ),
+              ///Adds the price, image, and size of pizza to the shopping cart,
+              ///routes to shopping cart when button is clicked
               Row(
                 children: [
                   Center(
@@ -212,12 +217,15 @@ class _SpecialtyPizzaPurchaseState extends State<SpecialtyPizzaPurchase> {
                             ShoppingCartItem item = new ShoppingCartItem();
                             item.pizzaType = PizzaType.specialty;
                             item.specialtyType = pizzaName;
+
+                            //Determines which pizza is selected
                             if(pizzaName == "Supreme") item.imageName = "Assets/SupremePizza.jpg";
                             else if(pizzaName == "BBQGoat") item.imageName = "Assets/BarbecueGoat.jpg";
                             else if(pizzaName == "Sicilian") item.imageName = "Assets/SicilianPizza.jpg";
                             else if(pizzaName == "Hawaiian") item.imageName = "Assets/HawaiianPizza.jpg";
                             else if(pizzaName == "Chicken Tikka Masala") item.imageName = "Assets/MasalaPizza.jpg";
-                            
+
+                            //Determine the price
                             if(_size == 1) {
                               item.size = 'Small';
                               item.price = 14.00;

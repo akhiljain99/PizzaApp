@@ -1,3 +1,16 @@
+/// ***********************************************************************
+///**NAMES: Cole DeBoer, Mary DeBoer, Jacob Doudna, Akhil Jain          ***
+///**CLASS: SE 330                                                      ***
+///**ASSIGNMENT: Project 1                                              ***
+///**DUE DATE: 3/22/2021                                                ***
+///**INSTRUCTOR: Mr. Gamradt                                            ***
+///************************************************************************
+///**FILE: ShoppingCartData.dart                                        ***
+///************************************************************************
+///**DESCRIPTION: Saves the items in the shopping cart that so that it  ***
+///**be used in other files.                                            ***
+///************************************************************************/
+
 import 'package:flutter/material.dart';
 import 'package:pizza_ordering_app/ShoppingCartItem.dart';
 
